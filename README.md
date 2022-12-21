@@ -1,5 +1,55 @@
 # ARTEMIS
 
+## `atm` commands
+
+`atm` is a library contains a lot of commands like npm and some additional commands to easily work on an Artemis project.
+First, you need to install `atm` as a global package
+
+```bash
+npm i -g .\scripts\atm\ --force
+```
+
+Then you can use npm-like command, using `atm` commands at the root of the project
+
+```bash
+# Add package into app/lib
+atm add --app=<app-name> <list-of-packages> <option-like-npm>
+
+atm add --lib=<lib-name> <list-of-packages> <option-like-npm>
+
+# Example:
+atm add --app=reacts eslint prettier husky --save-dev
+```
+
+```bash
+# Remove package from app/lib
+atm remove --app=<app-name> <list-of-packages>
+
+atm remove --lib=<lib-name> <list-of-packages>
+
+# Example:
+atm remove --lib=utils react next
+```
+
+```bash
+# Delete filde/folder package from app/lib
+atm delete --app=<app-name> <list-of-files-and-folders>
+
+atm delete --lib=<lib-name> <list-of-files-and-folders>
+
+# Example:
+atm delete --app=reacts package-lock.json node_modules
+```
+
+To apply those new commands on the root of the project, just omit the `--app` option
+
+```bash
+atm add <list-of-files-and-folders>
+
+# Example:
+atm add typescript
+```
+
 ## Conventional Commit Messages
 
 See how a minor change to your commit message style can make a difference
@@ -104,7 +154,7 @@ style: remove empty line
 
 ## Notes
 
-Give permission for husky:
+- Give permission for husky:
 
 ```bash
 chmod u+x .husky/\*

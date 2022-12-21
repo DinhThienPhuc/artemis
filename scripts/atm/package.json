@@ -1,0 +1,15 @@
+{
+  "name": "atm",
+  "version": "1.0.0",
+  "description": "atm - commands for Artemis project",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "atm": "./bin/index.js"
+  },
+  "author": "DinhThienPhuc",
+  "license": "MIT"
+}
