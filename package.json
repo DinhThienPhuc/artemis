@@ -4,12 +4,7 @@
   "description": "Root package for Artemis",
   "scripts": {
     "prepare": "husky install",
-    "format": "npx pretty-quick --staged && npx lint-staged",
-    "install-pkg-for-react": "cd apps/reacts && npm i",
-    "install-dev-pkg-for-react": "cd apps/reacts && npm i --save-dev",
-    "install-pkg-for-next": "cd apps/next && npm i",
-    "install-dev-pkg-for-next": "cd apps/next && npm i --save-dev",
-    "add-pkg": "bash ./scripts/npm-install.sh"
+    "format": "npx pretty-quick --staged && npx lint-staged"
   },
   "author": "DinhThienPhuc",
   "license": "MIT",
@@ -21,10 +16,10 @@
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
     "eslint": "^8.30.0",
+    "eslint-config-next": "^13.1.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-react": "^7.31.11",
-    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.1",

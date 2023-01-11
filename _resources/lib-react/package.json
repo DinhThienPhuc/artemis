@@ -1,0 +1,11 @@
+{
+  "name": "lib-react",
+  "version": "0.1.0",
+  "private": true,
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  }
+}
