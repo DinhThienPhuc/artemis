@@ -1,53 +1,103 @@
 # ARTEMIS
 
-## `atm` commands
+✨✨✨ A smart, powerful monorepo system, allow us to easily build and develop products. ✨✨✨
 
-`atm` is a library contains a lot of commands like npm and some additional commands to easily work on an Artemis project.
-First, you need to install `atm` as a global package
+## `atm` - A smart, fast and extensible build system tool
+
+✨ `atm` is a build system tool, an abstract layer of npm and add more commands to easily work on an `Artemis` system.
+
+<!-- TODO: need to break atm to an other repo. Maybe use an organization -->
+
+`atm` can be installed as a global package
 
 ```bash
-npm i -g .\scripts\atm\ --force
+npm i -g .\scripts\atm
+
+# or this one if on window
+npm i -g .\scripts\atm --force
 ```
 
-Then you can use npm-like command, using `atm` commands at the root of the project
+Then you can use npm-like commands, using `atm` commands at the root of the project
+
+To start working on a `Artemis` system, first you need to init project, answer some questions and _voila_ ☕☕☕
 
 ```bash
-# Add package into app/lib
-atm add --app=<app-name> <list-of-packages> <option-like-npm>
+atm create-artemis-system
+```
 
-atm add --lib=<lib-name> <list-of-packages> <option-like-npm>
+Then you can create an app or library (for reusable, if needed):
 
-# Example:
-atm add --app=reacts eslint prettier husky --save-dev
+```bash
+atm gen --app=<app-name> --type=<type>
+atm gen --lib=<lib-name> --type=<type>
+
+# Example
+atm gen --app=lazada --type=next
+atm gen --lib=hooks --type=reacts
+```
+
+Apps/libs then will be placed in `apps` or `libs` folder correspondingly.
+
+<!-- TODO: update them -->
+
+- Recursively add packages for all apps, all libs and the root of the project
+
+```bash
+atm add <list-of-packages> <option-like-npm>
+
+# Example - Install `eslint`, `husky`, `prettier` for devDependencies for all of root and all apps, all libs
+atm add eslint prettier husky --save-dev
+
+# Example - Install all recursively (except `_resources` folder)
+atm add
+```
+
+- Add/remove package from app/lib/root
+
+```bash
+atm add --target=<app-name-or-lib-name> <list-of-packages> <option-like-npm>
+atm remove --target=<app-name-or-lib-name> <list-of-packages> <option-like-npm>
+
+# Example - Install `eslint` for devDependencies of `reacts` app
+atm add --target=reacts eslint --save-dev
+
+# Example - Install `husky` for dependencies of `reacts` and `next` apps
+atm add --target=reacts,next husky
+
+# Example - Install `husky` for devDependencies of root folder
+atm add --target=root husky --save-dev
+```
+
+- Delete files/folders from app/lib/root
+
+```bash
+atm delete --target=<app-name-or-lib-name> <list-of-files-and-folders>
+
+# Example - Delete `package-lock.json` file and `node_modules` folder in `reacts` app
+atm delete --target=reacts package-lock.json node_modules
 ```
 
 ```bash
-# Remove package from app/lib
-atm remove --app=<app-name> <list-of-packages>
+# Run app(s), default in development mode
+atm run --target=<app-name>
 
-atm remove --lib=<lib-name> <list-of-packages>
+# Example - Run single app
+atm run --target=reacts
 
-# Example:
-atm remove --lib=utils react next
+# Example - Run multi apps
+atm run --target=reacts,next
 ```
 
 ```bash
-# Delete filde/folder package from app/lib
-atm delete --app=<app-name> <list-of-files-and-folders>
+# TODO: need to add to script
+# Build app(s), default in production mode
+atm build --target=<app-name>
 
-atm delete --lib=<lib-name> <list-of-files-and-folders>
+# Example - Build single app
+atm build --target=reacts
 
-# Example:
-atm delete --app=reacts package-lock.json node_modules
-```
-
-To apply those new commands on the root of the project, just omit the `--app` option
-
-```bash
-atm add <list-of-files-and-folders>
-
-# Example:
-atm add typescript
+# Example - Build multi apps
+atm build --target=reacts,next
 ```
 
 ## Conventional Commit Messages
@@ -159,3 +209,11 @@ style: remove empty line
 ```bash
 chmod u+x .husky/\*
 ```
+
+- Chalk colors:
+
+  - CREATE: green
+  - INSTALL: cyan
+  - UPDATE: yellow
+  - REMOVE: red
+  - MODIFY: yellow

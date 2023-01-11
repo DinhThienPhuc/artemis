@@ -1,0 +1,76 @@
+{
+  "app-react": {
+    "name": "app-react",
+    "srcPath": "_resources/app-react/src",
+    "rootPath": "_resources/app-react",
+    "framework": "react",
+    "actions": {
+      "run": {
+        "development": {
+          "command": "npm start --prefix ./_resources/app-react",
+          "hmr": true,
+          "sourcemap": true,
+          "port": 4000
+        },
+        "production": {
+          "hmr": true,
+          "sourcemap": true,
+          "port": 4000
+        }
+      },
+      "build": {
+        "development": {
+          "command": "",
+          "hmr": false,
+          "sourcemap": false,
+          "port": 4000
+        },
+        "production": {
+          "hmr": false,
+          "sourcemap": false,
+          "port": 4000
+        }
+      }
+    }
+  },
+  "app-next": {
+    "name": "app-next",
+    "srcPath": "_resources/app-next/src",
+    "rootPath": "_resources/app-next",
+    "framework": "next",
+    "actions": {
+      "run": {
+        "development": {
+          "command": "npm start --prefix ./_resources/app-next",
+          "hmr": true,
+          "sourcemap": true,
+          "port": 4001
+        },
+        "production": {
+          "hmr": true,
+          "sourcemap": true,
+          "port": 4001
+        }
+      },
+      "build": {
+        "development": {
+          "command": "",
+          "hmr": false,
+          "sourcemap": false,
+          "port": 4001
+        },
+        "production": {
+          "hmr": false,
+          "sourcemap": false,
+          "port": 4001
+        }
+      }
+    }
+  },
+  "lib-react": {
+    "name": "lib-react",
+    "srcPath": "_resources/lib-react/src",
+    "rootPath": "_resources/lib-react",
+    "framework": "react"
+  }
+}
